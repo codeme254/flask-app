@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+our esteemed sellers &mdash; always bringing the products to you
+{% endblock%}
+
+{% block pagecontent %}
+<section class="sellers-section">
+    <h2 class="title">our esteemed sellers</h2>
+    <div class="sellers__container">
+        {% for seller in all_sellers %}
+        <div class="seller">
+            <div class="seller__name-box">
+                <div class="seller__avartar">{{seller.sellerName[0]}}</div>
+                <h2 class="seller__name"> {{seller.sellerName}} </h2>
+            </div>
+            <p class="seller__about"><span>goods sold</span>: {{seller.goodsSold}} </p>
+            <p class="seller__about"><span>charisma</span>: {{seller.charisma}} </p>
+            <p class="seller__about"><span>email address</span>: {{seller.emailAddress}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

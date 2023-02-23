@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ explore all products in z-marketplace
+{% endblock %}
+
+{% block pagecontent %}
+<section class="products">
+    <h2 class="title">explore all our products</h2>
+
+    <div class="products__container">
+        {% for product in all_products %}
+        <div class="product">
+            <div class="product__title">
+                <h2 class="product__title--title">{{ product.productName }}</h2>
+            </div>
+            <div class="product__body">
+                <p class="product__description">
+                    {{ product.productDescription }}
+                </p>
+                <p class="product__demand">wanted by {{ product.buyersWanting }} buyers</p>
+                <p class="product__demand">being sold by {{ product.sellersSelling }} sellers</p>
+            </div>
+            <a href="" class="product__cta">purchase for ${{product.price}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

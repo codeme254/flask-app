@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">z-marketplace</h1>
+        <nav class="header__nav">
+            <ol class="header__nav-list">
+                <li class="header__nav-list--item">
+                    <a href="{{ url_for('index_page') }}">home</a>
+                </li>
+                <li class="header__nav-list--item">
+                    <a href="{{ url_for('all_products') }}">all products</a>
+                </li>
+                <li class="header__nav-list--item">
+                    <a href="{{ url_for('all_buyers') }}">all buyers</a>
+                </li>
+                <li class="header__nav-list--item">
+                    <a href=" {{ url_for('all_sellers') }} ">all sellers</a>
+                </li>
+            </ol>
+        </nav>
+    </header>
+    <main>
+        {% block pagecontent %}
+        {% endblock %}
+    </main>
+</body>
+</html>

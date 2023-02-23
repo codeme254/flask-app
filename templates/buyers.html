@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+our esteemed buyers in z-marketplace
+{% endblock %}
+
+{% block pagecontent %}
+<section class="buyers-section">
+    <h2 class="title">our esteemed buyers</h2>
+    <div class="buyers__container">
+        {% for buyer in all_buyers %}
+        <div class="buyer">
+            <div class="buyer__name-box">
+                <div class="buyer__avartar">{{buyer.buyerName[0]}}</div>
+                <h2 class="buyer__name">{{buyer.buyerName}}</h2>
+            </div>
+            <div class="buyer__body">
+                <p class="buyer__about">Goods bought: {{buyer.goodsBought}} </p>
+                <p class="buyer__about">charisma: {{buyer.charisma}} </p>
+                <p class="buyer__about">Joined on: {{buyer.joinedOn}} </p>
+                <p class="buyer__about">Email address: {{buyer.emailAddress}} </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
