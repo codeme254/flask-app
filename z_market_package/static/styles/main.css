@@ -296,3 +296,49 @@ body{
     text-transform: capitalize;
 }
 /* end of sellers.html */
+
+/* user-registration.html */
+.user-form-wrapper{
+    width: 90vw;
+    margin: 3rem auto;
+}
+
+.form__group{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-bottom: 2rem;
+}
+
+.user-registration-form__label{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.user-registration-form__text-input{
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 5px #222;
+}
+
+.user-registration-form__text-input::placeholder{
+    font-weight: normal;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+.user-registration-form__submit-btn{
+    display: block;
+    padding: 2rem 2.5rem;
+    margin: auto;
+    border: none;
+    outline: none;
+    background-color: var(--color-primary);
+    color: var(--col-white);
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* end of user-registration.html */

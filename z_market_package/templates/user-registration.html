@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+create your account
+{% endblock %}
+
+{% block pagecontent %}
+<section class="user-registration-section">
+    <h2 class="title">Create your account</h2>
+    <div class="user-form-wrapper">
+        <form method="post" class="user-registration-form">
+            <div class="form__group">
+                {{ user_registration_form.first_name.label(class="user-registration-form__label") }}
+                {{ user_registration_form.first_name(class="user-registration-form__text-input", placeholder="legal first name") }}
+            </div>
+            <div class="form__group">
+                {{ user_registration_form.last_name.label(class="user-registration-form__label") }}
+                {{ user_registration_form.last_name(class="user-registration-form__text-input", placeholder="legal last name") }}
+            </div>
+            <div class="form__group">
+                {{ user_registration_form.email_address.label(class="user-registration-form__label") }}
+                {{ user_registration_form.email_address(class="user-registration-form__text-input", placeholder="your official email address") }}
+            </div>
+            <div class="form__group">
+                {{ user_registration_form.username.label(class="user-registration-form__label") }}
+                {{ user_registration_form.username(class="user-registration-form__text-input", placeholder="preffered username") }}
+            </div>
+            <div class="form__group">
+                {{ user_registration_form.password.label(class="user-registration-form__label") }}
+                {{ user_registration_form.password(class="user-registration-form__text-input", placeholder="create a strong password for your account" )}}
+            </div>
+            <div class="form__group">
+                {{ user_registration_form.confirm_password.label(class="user-registration-form__label") }}
+                {{ user_registration_form.confirm_password(class="user-registration-form__text-input", placeholder="confirm your password" )}}
+            </div>
+            {{user_registration_form.submit(class="user-registration-form__submit-btn")}}
+        </form>
+    </div>
+</section>
+{% endblock %}

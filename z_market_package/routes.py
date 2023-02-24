@@ -3,6 +3,7 @@ from flask import render_template
 from z_market_package.models import Product
 from z_market_package.models import Buyer
 from z_market_package.models import Seller
+from z_market_package.forms import RegisterUserForm
 
 @app.route("/")
 @app.route("/home")
@@ -23,3 +24,8 @@ def all_buyers():
 def all_sellers():
     all_sellers = Seller.query.all()
     return render_template("sellers.html", all_sellers=all_sellers)
+
+@app.route("/user-registration")
+def register_user():
+    user_registration_form = RegisterUserForm()
+    return render_template("user-registration.html", user_registration_form=user_registration_form)
