@@ -31,3 +31,16 @@ class Seller(db.Model):
     goodsSold = db.Column(db.Integer(), nullable=False)
     charisma = db.Column(db.Integer(), nullable=False)
     emailAddress = db.Column(db.String(), nullable=False)
+
+class User(db.Model):
+    """
+    Ok, this can just be some normal user who wants to use our app but doesn't
+    want to be part of the fahm
+    """
+    id = db.Column(db.Integer(), primary_key=True, nullable=False)
+    first_name = db.Column(db.String(), nullable=False)
+    last_name = db.Column(db.String(), nullable=False)
+    email_address = db.Column(db.String(), nullable=False, unique=True)
+    prefered_username = db.Column(db.String(), nullable=False, unique=True)
+    password = db.Column(db.String(), nullable=False)
+    confirm_password = db.Column(db.String(), nullable=False)

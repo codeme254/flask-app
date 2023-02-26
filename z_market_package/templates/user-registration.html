@@ -9,6 +9,7 @@ create your account
     <h2 class="title">Create your account</h2>
     <div class="user-form-wrapper">
         <form method="post" class="user-registration-form">
+            {{user_registration_form.hidden_tag()}}
             <div class="form__group">
                 {{ user_registration_form.first_name.label(class="user-registration-form__label") }}
                 {{ user_registration_form.first_name(class="user-registration-form__text-input", placeholder="legal first name") }}

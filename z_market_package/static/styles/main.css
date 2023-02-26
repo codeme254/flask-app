@@ -35,6 +35,13 @@ body{
     color: var(--color-primary);
 }
 
+.error-msg{
+    text-align: center;
+    font-size: 1.6rem;
+    color: crimson;
+    margin: .5rem;
+}
+
 .header{
     display: flex;
     align-items: center;
