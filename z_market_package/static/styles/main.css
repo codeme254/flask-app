@@ -28,6 +28,11 @@ body{
     padding: 3rem 1rem;
 }
 
+.message_text{
+    font-size: 1.8rem;
+    text-align: center;
+}
+
 .logo{
     font-size: 3rem;
     text-transform: uppercase;

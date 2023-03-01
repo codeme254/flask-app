@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+Login to your account
+{% endblock %}
+
+{% block pagecontent %}
+<h2 class="title">Login to your account to purchase</h2>
+<div class="user-form-wrapper">
+    <form method="post" class="user-registration-form">
+        {{login_form.hidden_tag()}}
+        <div class="form__group">
+            {{login_form.username.label(class="user-registration-form__label")}}
+            {{login_form.username(class="user-registration-form__text-input", placeholder="Your username")}}
+        </div>
+        <div class="form__group">
+            {{login_form.password.label(class="user-registration-form__label")}}
+            {{login_form.password(class="user-registration-form__text-input", placeholder="Your password")}}
+        </div>
+        {{login_form.login(class="user-registration-form__submit-btn")}}
+        <p class="message_text">Do not have an account? <a href="{{ url_for('register_user') }}">Sign Up</a></p>
+    </form>
+</div>
+{% endblock %}

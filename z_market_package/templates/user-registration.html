@@ -7,6 +7,7 @@ create your account
 {% block pagecontent %}
 <section class="user-registration-section">
     <h2 class="title">Create your account</h2>
+    <p class="message_text">Already have an account? <a href="{{url_for('login_a_user')}}" class="message-link">Login</a></p>
     <div class="user-form-wrapper">
         <form method="post" class="user-registration-form">
             {{user_registration_form.hidden_tag()}}

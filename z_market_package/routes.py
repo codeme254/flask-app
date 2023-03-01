@@ -1,10 +1,11 @@
 from z_market_package import app
 from flask import render_template, redirect, url_for, flash
+from flask_login import login_user
 from z_market_package.models import Product
 from z_market_package.models import Buyer
 from z_market_package.models import Seller
 from z_market_package.models import User
-from z_market_package.forms import RegisterUserForm
+from z_market_package.forms import RegisterUserForm, LoginForm
 from z_market_package import db
 
 @app.route("/")
@@ -36,8 +37,8 @@ def register_user():
             last_name = user_registration_form.last_name.data,
             email_address = user_registration_form.email_address.data,
             prefered_username = user_registration_form.username.data,
-            password = user_registration_form.password.data,
-            confirm_password = user_registration_form.confirm_password.data
+            hashed_password = user_registration_form.password.data,
+            confirm_password_hash = user_registration_form.confirm_password.data
         )
         db.session.add(new_user)
         db.session.commit()
@@ -46,3 +47,19 @@ def register_user():
         for error_message in user_registration_form.errors.values():
             flash("There was an error: {}".format(error_message))
     return render_template("user-registration.html", user_registration_form=user_registration_form)
+
+@app.route("/login", methods = ['GET', 'POST'])
+def login_a_user():
+    login_form = LoginForm()
+    if login_form.validate_on_submit():
+        # check if the user exists
+        attempted_user = User.query.filter_by(prefered_username=login_form.username.data).first()
+        # if attempted user exists, check if password matches
+        # we need to unhash the password
+        if attempted_user and attempted_user.check_password_correction(attempted_password=login_form.password.data):
+            login_user(attempted_user)
+            flash("Success! You are logged in as {}".format(attempted_user.prefered_username), category="success")
+            return redirect(url_for('all_products'))
+        else:
+            flash("Username and password do not match, please try again.", category="danger")
+    return render_template("login.html", login_form=login_form)
